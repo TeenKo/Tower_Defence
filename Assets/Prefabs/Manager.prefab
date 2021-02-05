@@ -49,7 +49,7 @@ MonoBehaviour:
   totalEscapedLabel: {fileID: 0}
   currentWave: {fileID: 0}
   totalMoneyLable: {fileID: 0}
-  totalWaves: 11
+  totalWaves: 3
   spawnPoint: {fileID: 7910919192016871015, guid: dd3700701af74354caca17293ec085c1,
     type: 3}
   enemies:

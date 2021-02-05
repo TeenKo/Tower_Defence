@@ -16,7 +16,7 @@ public class TowerControl : MonoBehaviour
     private float attackCounter; //Счетчик для стрельбы
     private bool isAttacking = false; // С самого начала убриаем возможность стрелять.
 
-
+    private float speedAttack = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +64,7 @@ public class TowerControl : MonoBehaviour
 
     public void Attack()
     {
-        isAttacking = false; // Башня изночально не стреляет
+        isAttacking = false; // Башня изначально не стреляет
         Projectile newProjectile = Instantiate(projectile, transform.localPosition, Quaternion.identity) as Projectile; // переменная будет использовать projectile как Projectile
         newProjectile.transform.localPosition = transform.localPosition; // Появление нового newProjectile
         if (newProjectile.PType == projectileType.arrow)
@@ -102,8 +102,8 @@ public class TowerControl : MonoBehaviour
             var dir = targetEnemy.transform.localPosition - transform.localPosition; // Дистанция уменьшается
             var angleDirection = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg; // Угол поворота , нарпавление по х и у умноженное на радиус угла поворота
             projectile.transform.rotation = Quaternion.AngleAxis(angleDirection, Vector3.forward); // Поворот снаряда после счиитывания информации поворота. Следовать к протвниику поворачивая угол снаряда.
-            // Позиция projectile будет двишаться к протвинику от позиции projectile до позиции противника со скоростью  5f * Time.deltaTime
-            projectile.transform.localPosition = Vector2.MoveTowards(projectile.transform.localPosition, targetEnemy.transform.localPosition, 5f * Time.deltaTime);
+            // Позиция projectile будет двигаться к протвинику от позиции projectile до позиции противника со скоростью  5f * Time.deltaTime
+            projectile.transform.localPosition = Vector2.MoveTowards(projectile.transform.localPosition, targetEnemy.transform.localPosition, speedAttack * Time.deltaTime);
             yield return null;
             
         }

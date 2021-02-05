@@ -46,7 +46,7 @@ public class Manager : Loader<Manager>
 
     public List<Enemy> EnemyList = new List<Enemy>(); //Для того чтобы помещать всех противников , которые остались на карте и он будет выбирать по какому врагу стрелять с этого списка.
 
-    private const float spawnDelay = 0.5f; //Создали константу spawnDela 
+    private const float spawnDelay = 0.5f; //Создали константу spawnDelay 
 
     public int TotalEscaped
     {

@@ -103,6 +103,7 @@ public class Enemy : MonoBehaviour
             //die
             anim.SetTrigger("didDie");
             Die();
+
         }
     }
     
